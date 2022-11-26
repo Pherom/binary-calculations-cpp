@@ -22,7 +22,7 @@ BinaryNumber::BinaryNumber(const string& binary_string) {
 
 size_t BinaryNumber::countTrailingZeros() const {
 	size_t count = 0;
-	while ((*this)[count] == 0) {
+	while ((*this)[count] == 0 && count < size() - 1) {
 		count++;
 	}
 
