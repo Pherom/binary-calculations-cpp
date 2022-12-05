@@ -4,6 +4,10 @@ BinaryNumber::BinaryNumber(size_t number) {
 	fromDecimalRec(number);
 }
 
+BinaryNumber::BinaryNumber(bool value) {
+	binary_array.push_back(value);
+}
+
 BinaryNumber::BinaryNumber(const string& binary_string) {
 	size_t input_length = binary_string.length();
 	char bit_as_char;

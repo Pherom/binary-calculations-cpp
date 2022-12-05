@@ -22,6 +22,7 @@ private:
 
 public:
 	BinaryNumber(size_t number);
+	BinaryNumber(bool value);
 	BinaryNumber(const string& binary_string);
 	BinaryNumber(const deque<bool>& binary_array);
 	BinaryNumber(const BinaryNumber& binary_number);
