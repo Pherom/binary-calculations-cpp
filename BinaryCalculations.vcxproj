@@ -103,10 +103,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="algorithm.h" />
     <ClInclude Include="binary_number.h" />
+    <ClInclude Include="naive_addition_algorithm.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="binary_number.cpp" />
+    <ClCompile Include="naive_addition_algorithm.cpp" />
     <ClCompile Include="program.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

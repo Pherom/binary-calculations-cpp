@@ -15,7 +15,7 @@ BinaryNumber::BinaryNumber(const string& binary_string) {
 	}
 }
 
-BinaryNumber::BinaryNumber(BinaryNumber& binary_number) {
+BinaryNumber::BinaryNumber(const BinaryNumber& binary_number) {
 	for (bool bit_as_bool : binary_number) {
 		binary_array.push_back(bit_as_bool);
 	}
@@ -43,7 +43,7 @@ bool BinaryNumber::operator[](size_t index) const {
 	return binary_array[index];
 }
 
-bool BinaryNumber::operator==(const BinaryNumber& binary_number) {
+bool BinaryNumber::operator==(const BinaryNumber& binary_number) const {
 	bool equal = true;
 
 	size_t index1 = 0, index2 = 0;
@@ -58,6 +58,19 @@ bool BinaryNumber::operator==(const BinaryNumber& binary_number) {
 	}
 
 	return equal;
+}
+
+bool BinaryNumber::operator!=(const BinaryNumber& binary_number) const {
+	return !(*this == binary_number);
+}
+
+bool BinaryNumber::operator==(size_t number) const {
+	BinaryNumber binary_number = BinaryNumber(number);
+	return *this == binary_number;
+}
+
+bool BinaryNumber::operator!=(size_t number) const {
+	return !(*this == number);
 }
 
 size_t BinaryNumber::size() const {
