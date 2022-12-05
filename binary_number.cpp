@@ -15,7 +15,16 @@ BinaryNumber::BinaryNumber(const string& binary_string) {
 	}
 }
 
-//101110
+BinaryNumber::BinaryNumber(const deque<bool>& binary_array) {
+	this->binary_array = binary_array;
+}
+
+BinaryNumber::BinaryNumber(const BinaryNumber& binary_number) {
+	for (bool bit_as_bool : binary_number) {
+		binary_array.push_back(bit_as_bool);
+	}
+}
+
 size_t BinaryNumber::countTrailingZeros() const {
 	size_t count = 0;
 	size_t index = size() - 1;
@@ -38,7 +47,7 @@ bool BinaryNumber::operator[](size_t index) const {
 	return binary_array[index];
 }
 
-bool BinaryNumber::operator==(const BinaryNumber& binary_number) {
+bool BinaryNumber::operator==(const BinaryNumber& binary_number) const {
 	bool equal = true;
 
 	size_t index1 = 0, index2 = 0;
@@ -55,6 +64,19 @@ bool BinaryNumber::operator==(const BinaryNumber& binary_number) {
 	return equal;
 }
 
+bool BinaryNumber::operator!=(const BinaryNumber& binary_number) const {
+	return !(*this == binary_number);
+}
+
+bool BinaryNumber::operator==(size_t number) const {
+	BinaryNumber binary_number = BinaryNumber(number);
+	return *this == binary_number;
+}
+
+bool BinaryNumber::operator!=(size_t number) const {
+	return !(*this == number);
+}
+
 size_t BinaryNumber::size() const {
 	return binary_array.size();
 }
@@ -65,8 +87,7 @@ size_t BinaryNumber::logicalSize() const {
 
 void BinaryNumber::changeByOne(CHANGE_BY_ONE_OPERATION operation) {
 	bool carry = true;
-	size_t logSize = logicalSize();
-	for (size_t i = 0; i < logSize; i++) {
+	for (size_t i = 0; i < size(); i++) {
 		if (binary_array[i] == true && operation == BinaryNumber::INCREMENT) {
 			binary_array[i] = false;
 		}
