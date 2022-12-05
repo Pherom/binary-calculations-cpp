@@ -23,6 +23,7 @@ private:
 public:
 	BinaryNumber(size_t number);
 	BinaryNumber(const string& binary_string);
+	BinaryNumber(BinaryNumber& binary_number);
 
 	bool operator[](size_t index) const;
 	bool operator==(const BinaryNumber& binary_number);
