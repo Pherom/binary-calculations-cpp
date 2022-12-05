@@ -15,6 +15,10 @@ BinaryNumber::BinaryNumber(const string& binary_string) {
 	}
 }
 
+BinaryNumber::BinaryNumber(const deque<bool>& binary_array) {
+	this->binary_array = binary_array;
+}
+
 BinaryNumber::BinaryNumber(const BinaryNumber& binary_number) {
 	for (bool bit_as_bool : binary_number) {
 		binary_array.push_back(bit_as_bool);

@@ -105,10 +105,12 @@
   <ItemGroup>
     <ClInclude Include="algorithm.h" />
     <ClInclude Include="binary_number.h" />
+    <ClInclude Include="long_addition_algorithm.h" />
     <ClInclude Include="naive_addition_algorithm.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="binary_number.cpp" />
+    <ClCompile Include="long_addition_algorithm.cpp" />
     <ClCompile Include="naive_addition_algorithm.cpp" />
     <ClCompile Include="program.cpp" />
   </ItemGroup>
