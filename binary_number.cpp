@@ -15,7 +15,12 @@ BinaryNumber::BinaryNumber(const string& binary_string) {
 	}
 }
 
-//101110
+BinaryNumber::BinaryNumber(BinaryNumber& binary_number) {
+	for (bool bit_as_bool : binary_number) {
+		binary_array.push_back(bit_as_bool);
+	}
+}
+
 size_t BinaryNumber::countTrailingZeros() const {
 	size_t count = 0;
 	size_t index = size() - 1;
