@@ -83,8 +83,7 @@ size_t BinaryNumber::logicalSize() const {
 
 void BinaryNumber::changeByOne(CHANGE_BY_ONE_OPERATION operation) {
 	bool carry = true;
-	size_t logSize = logicalSize();
-	for (size_t i = 0; i < logSize; i++) {
+	for (size_t i = 0; i < size(); i++) {
 		if (binary_array[i] == true && operation == BinaryNumber::INCREMENT) {
 			binary_array[i] = false;
 		}
