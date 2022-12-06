@@ -142,3 +142,28 @@ ostream& operator<<(ostream& os, const BinaryNumber& binary_number)
 	}
 	return os;
 }
+
+void BinaryNumber::shift(SHIFT_DIRECTION direction, size_t amount) {
+	switch (direction) {
+	case LEFT:
+		for (int i = 0; i < amount; i++) {
+			binary_array.push_front(false);
+		}
+		break;
+	case RIGHT:
+		for (int i = 0; i < amount; i++) {
+			binary_array.pop_front();
+		}
+		break;
+	}
+}
+
+BinaryNumber& BinaryNumber::shiftLeft(size_t amount) {
+	shift(LEFT, amount);
+	return *this;
+}
+
+BinaryNumber& BinaryNumber::shiftRight(size_t amount) {
+	shift(RIGHT, amount);
+	return *this;
+}
