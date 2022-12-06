@@ -18,11 +18,13 @@ private:
 	void fromDecimalRec(size_t number);
 
 	enum CHANGE_BY_ONE_OPERATION { INCREMENT, DECREMENT };
+	enum SHIFT_DIRECTION { LEFT, RIGHT };
+
 	void changeByOne(CHANGE_BY_ONE_OPERATION operation);
+	void shift(SHIFT_DIRECTION direction, size_t amount);
 
 public:
 	BinaryNumber(size_t number);
-	BinaryNumber(bool value);
 	BinaryNumber(const string& binary_string);
 	BinaryNumber(const deque<bool>& binary_array);
 	BinaryNumber(const BinaryNumber& binary_number);
@@ -38,6 +40,8 @@ public:
 
 	BinaryNumber& operator++();
 	BinaryNumber& operator--();
+	BinaryNumber& shiftLeft(size_t amount);
+	BinaryNumber& shiftRight(size_t amount);
 
 	BinaryNumber operator++(int);
 	BinaryNumber operator--(int);
