@@ -4,7 +4,7 @@
 BinaryNumber NaiveMultiplicationAlgorithm::calculate(const BinaryNumber& binary_number1, const BinaryNumber& binary_number2) {
 	BinaryNumber counter = binary_number1;
 	BinaryNumber result = binary_number2;
-	IAlgorithm* addition_algorithm = new NaiveAdditionAlgorithm();
+	IBasicAlgorithm* addition_algorithm = new NaiveAdditionAlgorithm();
 
 	if (counter != 0) {
 		--counter;

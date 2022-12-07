@@ -1,14 +1,15 @@
 #pragma once
 
-#include "algorithm.h"
-#include "long_addition_algorithm.h"
+#include "basic_algorithm.h"
+#include "long_addition_with_carry_algorithm.h"
 
-class TwosComplementSubtractionAlgorithm : public IAlgorithm {
+class TwosComplementSubtractionAlgorithm : public IBasicAlgorithm {
 
 private:
-	LongAdditionAlgorithm addition_algorithm;
+	IResultPairAlgorithm* addition_with_carry_algorithm = new LongAdditionWithCarryAlgorithm(true);
 
 public:
+	~TwosComplementSubtractionAlgorithm();
 	virtual BinaryNumber calculate(const BinaryNumber& binary_number1, const BinaryNumber& binary_number2);
 
 };

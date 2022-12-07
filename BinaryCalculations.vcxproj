@@ -103,20 +103,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="algorithm.h" />
+    <ClInclude Include="basic_algorithm.h" />
     <ClInclude Include="binary_number.h" />
     <ClInclude Include="dynamic_programming_multiplication_algorithm.h" />
     <ClInclude Include="karatsuba_multiplication_algorithm.h" />
     <ClInclude Include="long_addition_algorithm.h" />
+    <ClInclude Include="long_addition_with_carry_algorithm.h" />
     <ClInclude Include="long_multiplication_algorithm.h" />
     <ClInclude Include="naive_addition_algorithm.h" />
     <ClInclude Include="naive_multiplication_algorithm.h" />
+    <ClInclude Include="result_pair_algorithm.h" />
     <ClInclude Include="twos_complement_subtraction_algorithm.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="binary_number.cpp" />
     <ClCompile Include="dynamic_programming_multiplication_algorithm.cpp" />
     <ClCompile Include="karatsuba_multiplication_algorithm.cpp" />
+    <ClCompile Include="LongAdditionWithCarryAlgorithm.cpp" />
     <ClCompile Include="long_addition_algorithm.cpp" />
     <ClCompile Include="long_multiplication_algorithm.cpp" />
     <ClCompile Include="naive_addition_algorithm.cpp" />

@@ -1,12 +1,12 @@
 #pragma once
 
-#include "algorithm.h"
+#include "basic_algorithm.h"
 #include "long_addition_algorithm.h"
 
-class DynamicProgrammingMultiplicationAlgorithm : public IAlgorithm {
+class DynamicProgrammingMultiplicationAlgorithm : public IBasicAlgorithm {
 
 private:
-	IAlgorithm* addition_algorithm = new LongAdditionAlgorithm();
+	IBasicAlgorithm* addition_algorithm = new LongAdditionAlgorithm();
 
 public:
 	~DynamicProgrammingMultiplicationAlgorithm();

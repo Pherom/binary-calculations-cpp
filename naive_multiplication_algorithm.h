@@ -1,8 +1,8 @@
 #pragma once
 
-#include "algorithm.h"
+#include "basic_algorithm.h"
 
-class NaiveMultiplicationAlgorithm : public IAlgorithm {
+class NaiveMultiplicationAlgorithm : public IBasicAlgorithm {
 
 public:
 	virtual BinaryNumber calculate(const BinaryNumber& binary_number1, const BinaryNumber& binary_number2);

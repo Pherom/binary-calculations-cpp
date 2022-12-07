@@ -1,11 +1,14 @@
 #pragma once
 
-#include "algorithm.h"
+#include "basic_algorithm.h"
+#include "long_addition_with_carry_algorithm.h"
 
-class LongAdditionAlgorithm : public IAlgorithm {
+class LongAdditionAlgorithm : public IBasicAlgorithm {
+
+private:
+	IResultPairAlgorithm* long_addition_with_carry_algorithm = new LongAdditionWithCarryAlgorithm();
 
 public:
 	virtual BinaryNumber calculate(const BinaryNumber& binary_number1, const BinaryNumber& binary_number2);
-	BinaryNumber calculateDiscardCarry(const BinaryNumber& binary_number1, const BinaryNumber& binary_number2, bool discard_carry, bool& carry);
 
 };

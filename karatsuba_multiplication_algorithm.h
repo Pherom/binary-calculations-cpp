@@ -1,13 +1,14 @@
 #pragma once
 
-#include "algorithm.h"
+#include "basic_algorithm.h"
+#include "long_addition_algorithm.h"
 #include "twos_complement_subtraction_algorithm.h"
 
-class KaratsubaMultiplicationAlgorithm : public IAlgorithm {
+class KaratsubaMultiplicationAlgorithm : public IBasicAlgorithm {
 
 private:
-	IAlgorithm* addition_algorithm = new LongAdditionAlgorithm();
-	IAlgorithm* subtraction_algorithm = new TwosComplementSubtractionAlgorithm();
+	IBasicAlgorithm* addition_algorithm = new LongAdditionAlgorithm();
+	IBasicAlgorithm* subtraction_algorithm = new TwosComplementSubtractionAlgorithm();
 
 public:
 	~KaratsubaMultiplicationAlgorithm();
