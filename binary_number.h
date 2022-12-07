@@ -23,6 +23,9 @@ private:
 	void changeByOne(CHANGE_BY_ONE_OPERATION operation);
 	void shift(SHIFT_DIRECTION direction, size_t amount);
 
+	bool isLessThan128() const;
+	bool isEqualTo128() const;
+
 public:
 	BinaryNumber(size_t number);
 	BinaryNumber(const string& binary_string);
@@ -34,20 +37,25 @@ public:
 	bool operator==(size_t number) const;
 	bool operator!=(const BinaryNumber& binary_number) const;
 	bool operator!=(size_t number) const;
+	bool isLessThanOrEqualTo128() const;
 
 	size_t size() const;
 	size_t logicalSize() const;
+	size_t getValueIfLessThanOrEqualTo128() const;
 
 	BinaryNumber& operator++();
 	BinaryNumber& operator--();
 	BinaryNumber& shiftLeft(size_t amount);
 	BinaryNumber& shiftRight(size_t amount);
+	BinaryNumber& addTrailingZeros(size_t amount);
 
 	BinaryNumber operator++(int);
 	BinaryNumber operator--(int);
+	BinaryNumber subBinaryNumber(size_t start_index_included, size_t end_index_excluded);
 
 	using const_iterator = deque<bool>::const_iterator;
 	const_iterator begin() const { return binary_array.begin(); }
 	const_iterator end() const { return binary_array.end(); }
 
+	static size_t matchSize(BinaryNumber& binary_number1, BinaryNumber& binary_number2);
 };
