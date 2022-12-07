@@ -48,10 +48,12 @@ public:
 	BinaryNumber& shiftLeft(size_t amount);
 	BinaryNumber& shiftRight(size_t amount);
 	BinaryNumber& addTrailingZeros(size_t amount);
+	BinaryNumber& changeToOnesComplement();
 
 	BinaryNumber operator++(int);
 	BinaryNumber operator--(int);
 	BinaryNumber subBinaryNumber(size_t start_index_included, size_t end_index_excluded);
+	BinaryNumber getOnesComplement();
 
 	using const_iterator = deque<bool>::const_iterator;
 	const_iterator begin() const { return binary_array.begin(); }

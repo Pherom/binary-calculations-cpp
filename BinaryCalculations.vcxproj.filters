@@ -36,6 +36,12 @@
     <ClInclude Include="dynamic_programming_multiplication_algorithm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="karatsuba_multiplication_algorithm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="twos_complement_subtraction_algorithm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="binary_number.cpp">
@@ -57,6 +63,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="dynamic_programming_multiplication_algorithm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="karatsuba_multiplication_algorithm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="twos_complement_subtraction_algorithm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

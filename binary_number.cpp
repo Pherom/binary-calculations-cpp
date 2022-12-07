@@ -174,6 +174,15 @@ BinaryNumber BinaryNumber::subBinaryNumber(size_t start_index_included, size_t e
 	return BinaryNumber(binary_array);
 }
 
+BinaryNumber BinaryNumber::getOnesComplement() {
+	deque<bool> complement_binary_array;
+	for (bool bit_as_bool : binary_array) {
+		complement_binary_array.push_back(!bit_as_bool);
+	}
+
+	return BinaryNumber(complement_binary_array);
+}
+
 ostream& operator<<(ostream& os, const BinaryNumber& binary_number)
 {
 	size_t log_size = binary_number.logicalSize();
@@ -213,6 +222,14 @@ BinaryNumber& BinaryNumber::shiftRight(size_t amount) {
 BinaryNumber& BinaryNumber::addTrailingZeros(size_t amount) {
 	for (int i = 0; i < amount; i++) {
 		binary_array.push_back(false);
+	}
+
+	return *this;
+}
+
+BinaryNumber& BinaryNumber::changeToOnesComplement() {
+	for (bool& bit_as_bool : binary_array) {
+		bit_as_bool = !bit_as_bool;
 	}
 
 	return *this;
