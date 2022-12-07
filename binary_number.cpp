@@ -51,12 +51,12 @@ bool BinaryNumber::operator==(const BinaryNumber& binary_number) const {
 	bool equal = true;
 
 	size_t index1 = 0, index2 = 0;
-	size_t logSize1 = logicalSize(), logSize2 = binary_number.logicalSize();
+	size_t log_size1 = logicalSize(), log_size2 = binary_number.logicalSize();
 
-	if (logSize1 != logSize2)
+	if (log_size1 != log_size2)
 		equal = false;
 
-	for (; equal && index1 < logSize1 && index2 < logSize2; index1++, index2++) {
+	for (; equal && index1 < log_size1 && index2 < log_size2; index1++, index2++) {
 		if ((*this)[index1] != binary_number[index2])
 			equal = false;
 	}
@@ -77,12 +77,44 @@ bool BinaryNumber::operator!=(size_t number) const {
 	return !(*this == number);
 }
 
+bool BinaryNumber::isLessThan128() const {
+	return logicalSize() <= 7;
+}
+
+bool BinaryNumber::isEqualTo128() const {
+	bool result = false;
+
+	if (logicalSize() == 8 && binary_array[7] == true) {
+		result = true;
+		for (int i = 0; i < 7; i++) {
+			if (binary_array[i] == true)
+				result = false;
+		}
+	}
+
+	return result;
+}
+
+bool BinaryNumber::isLessThanOrEqualTo128() const {
+	return isLessThan128() || isEqualTo128();
+}
+
 size_t BinaryNumber::size() const {
 	return binary_array.size();
 }
 
 size_t BinaryNumber::logicalSize() const {
 	return size() - countTrailingZeros();
+}
+
+size_t BinaryNumber::getValueIfLessThanOrEqualTo128() const {
+	size_t value = 0;
+	
+	for (int i = 0; i < logicalSize(); i++) {
+		value += binary_array[i] * pow(2, i);
+	}
+
+	return value;
 }
 
 void BinaryNumber::changeByOne(CHANGE_BY_ONE_OPERATION operation) {
@@ -132,11 +164,21 @@ BinaryNumber BinaryNumber::operator--(int) {
 	return old;
 }
 
+BinaryNumber BinaryNumber::subBinaryNumber(size_t start_index_included, size_t end_index_excluded) {
+	size_t reverse_end_index_excluded = size() - start_index_included, reverse_start_index_included = size() - end_index_excluded;
+	deque<bool> binary_array;
+	for (size_t i = reverse_start_index_included; i < reverse_end_index_excluded; i++) {
+		binary_array.push_back((this->binary_array)[i]);
+	}
+
+	return BinaryNumber(binary_array);
+}
+
 ostream& operator<<(ostream& os, const BinaryNumber& binary_number)
 {
-	size_t logSize = binary_number.logicalSize();
+	size_t log_size = binary_number.logicalSize();
 	bool bit_as_bool;
-	for (size_t i = logSize; i-- > 0; ) {
+	for (size_t i = log_size; i-- > 0; ) {
 		bit_as_bool = binary_number[i];
 		os << bit_as_bool ? '1' : '0';
 	}
@@ -166,4 +208,26 @@ BinaryNumber& BinaryNumber::shiftLeft(size_t amount) {
 BinaryNumber& BinaryNumber::shiftRight(size_t amount) {
 	shift(RIGHT, amount);
 	return *this;
+}
+
+BinaryNumber& BinaryNumber::addTrailingZeros(size_t amount) {
+	for (int i = 0; i < amount; i++) {
+		binary_array.push_back(false);
+	}
+
+	return *this;
+}
+
+size_t BinaryNumber::matchSize(BinaryNumber& binary_number1, BinaryNumber& binary_number2) {
+	size_t size1 = binary_number1.size(), size2 = binary_number2.size(), max = size1;
+
+	if (size1 > size2) {
+		binary_number2.addTrailingZeros(size1 - size2);
+	}
+	else if (size2 > size1) {
+		binary_number1.addTrailingZeros(size2 - size1);
+		max = size2;
+	}
+
+	return max;
 }
