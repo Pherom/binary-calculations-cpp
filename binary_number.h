@@ -23,9 +23,6 @@ private:
 	void changeByOne(CHANGE_BY_ONE_OPERATION operation);
 	void shift(SHIFT_DIRECTION direction, size_t amount);
 
-	bool isLessThan128() const;
-	bool isEqualTo128() const;
-
 public:
 	BinaryNumber(size_t number);
 	BinaryNumber(const string& binary_string);
@@ -37,7 +34,14 @@ public:
 	bool operator==(size_t number) const;
 	bool operator!=(const BinaryNumber& binary_number) const;
 	bool operator!=(size_t number) const;
-	bool isLessThanOrEqualTo128() const;
+	bool operator<(const BinaryNumber& binary_number) const;
+	bool operator<(size_t number) const;
+	bool operator>(const BinaryNumber& binary_number) const;
+	bool operator>(size_t number) const;
+	bool operator<=(const BinaryNumber& binary_number) const;
+	bool operator<=(size_t number) const;
+	bool operator>=(const BinaryNumber& binary_number) const;
+	bool operator>=(size_t number) const;
 
 	size_t size() const;
 	size_t logicalSize() const;

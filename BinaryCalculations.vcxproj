@@ -103,7 +103,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="basic_algorithm.h" />
+    <ClInclude Include="single_result_algorithm.h" />
     <ClInclude Include="binary_number.h" />
     <ClInclude Include="dynamic_programming_multiplication_algorithm.h" />
     <ClInclude Include="karatsuba_multiplication_algorithm.h" />
@@ -111,6 +111,7 @@
     <ClInclude Include="long_addition_with_carry_algorithm.h" />
     <ClInclude Include="long_multiplication_algorithm.h" />
     <ClInclude Include="naive_addition_algorithm.h" />
+    <ClInclude Include="naive_euclidean_division_algorithm.h" />
     <ClInclude Include="naive_multiplication_algorithm.h" />
     <ClInclude Include="result_pair_algorithm.h" />
     <ClInclude Include="twos_complement_subtraction_algorithm.h" />
@@ -123,6 +124,7 @@
     <ClCompile Include="long_addition_algorithm.cpp" />
     <ClCompile Include="long_multiplication_algorithm.cpp" />
     <ClCompile Include="naive_addition_algorithm.cpp" />
+    <ClCompile Include="naive_euclidean_division_algorithm.cpp" />
     <ClCompile Include="naive_multiplication_algorithm.cpp" />
     <ClCompile Include="program.cpp" />
     <ClCompile Include="twos_complement_subtraction_algorithm.cpp" />

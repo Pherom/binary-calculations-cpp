@@ -1,9 +1,5 @@
 #include "twos_complement_subtraction_algorithm.h"
 
-TwosComplementSubtractionAlgorithm::~TwosComplementSubtractionAlgorithm() {
-	delete addition_with_carry_algorithm;
-}
-
 BinaryNumber TwosComplementSubtractionAlgorithm::calculate(const BinaryNumber& binary_number1, const BinaryNumber& binary_number2) {
 	BinaryNumber binary_number1_copy = binary_number1, binary_number2_copy = binary_number2;
 	BinaryNumber carry = BinaryNumber(false);

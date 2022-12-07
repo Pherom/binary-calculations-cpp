@@ -2,10 +2,10 @@
 
 #include "binary_number.h"
 
-class IBasicAlgorithm {
+class ISingleResultAlgorithm {
 
 public:
-	virtual ~IBasicAlgorithm() {};
+	virtual ~ISingleResultAlgorithm() {};
 	virtual BinaryNumber calculate(const BinaryNumber& binary_number1, const BinaryNumber& binary_number2) = 0;
 
 };

@@ -1,5 +1,5 @@
 #include "binary_number.h"
-#include "basic_algorithm.h"
+#include "single_result_algorithm.h"
 #include "naive_addition_algorithm.h"
 #include "long_addition_algorithm.h"
 #include "naive_multiplication_algorithm.h"
@@ -9,7 +9,7 @@
 #include <vector>
 
 int main(int argc, char* argv[]) {
-	vector<IBasicAlgorithm*> algorithms;
+	vector<ISingleResultAlgorithm*> algorithms;
 	algorithms.push_back(new NaiveAdditionAlgorithm());
 	algorithms.push_back(new LongAdditionAlgorithm());
 	algorithms.push_back(new NaiveMultiplicationAlgorithm());
@@ -21,7 +21,7 @@ int main(int argc, char* argv[]) {
 	BinaryNumber binary_number2("111");
 	cout << algorithms[5]->calculate(binary_number1, binary_number2);
 
-	for (IBasicAlgorithm* algo : algorithms) {
+	for (ISingleResultAlgorithm* algo : algorithms) {
 		delete algo;
 	}
 }

@@ -1,11 +1,7 @@
 #include "dynamic_programming_multiplication_algorithm.h"
 
-DynamicProgrammingMultiplicationAlgorithm::~DynamicProgrammingMultiplicationAlgorithm() {
-	delete addition_algorithm;
-}
-
 BinaryNumber DynamicProgrammingMultiplicationAlgorithm::calculate(const BinaryNumber& binary_number1, const BinaryNumber& binary_number2) {
-	if (binary_number1.isLessThanOrEqualTo128() && binary_number2.isLessThanOrEqualTo128()) {
+	if (binary_number1 <= 128 && binary_number2 <= 128) {
 		return BinaryNumber(binary_number1.getValueIfLessThanOrEqualTo128() * binary_number2.getValueIfLessThanOrEqualTo128());
 	}
 

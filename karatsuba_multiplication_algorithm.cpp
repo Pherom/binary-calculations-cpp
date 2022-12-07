@@ -1,12 +1,7 @@
 #include "karatsuba_multiplication_algorithm.h"
 
-KaratsubaMultiplicationAlgorithm::~KaratsubaMultiplicationAlgorithm() {
-	delete addition_algorithm;
-	delete subtraction_algorithm;
-}
-
 BinaryNumber KaratsubaMultiplicationAlgorithm::calculate(const BinaryNumber& binary_number1, const BinaryNumber& binary_number2) {
-	if (binary_number1.isLessThanOrEqualTo128() && binary_number2.isLessThanOrEqualTo128()) {
+	if (binary_number1 <= 128 && binary_number2 <= 128) {
 		return BinaryNumber(binary_number1.getValueIfLessThanOrEqualTo128() * binary_number2.getValueIfLessThanOrEqualTo128());
 	}
 

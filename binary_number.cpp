@@ -77,26 +77,64 @@ bool BinaryNumber::operator!=(size_t number) const {
 	return !(*this == number);
 }
 
-bool BinaryNumber::isLessThan128() const {
-	return logicalSize() <= 7;
-}
-
-bool BinaryNumber::isEqualTo128() const {
+bool BinaryNumber::operator<(const BinaryNumber& binary_number) const {
 	bool result = false;
+	size_t log_size1 = logicalSize(), log_size2 = binary_number.logicalSize();
 
-	if (logicalSize() == 8 && binary_array[7] == true) {
+	if (log_size1 > log_size2) {
+		result = false;
+	}
+
+	else if (log_size1 < log_size2) {
 		result = true;
-		for (int i = 0; i < 7; i++) {
-			if (binary_array[i] == true)
+	}
+
+	else {
+		for (size_t i = log_size1; i-- > 0; ) {
+			if (binary_array[i] && !binary_number[i]) {
 				result = false;
+				break;
+			}
+			else if (!binary_array[i] && binary_number[i]) {
+				result = true;
+				break;
+			}
 		}
 	}
 
 	return result;
 }
 
-bool BinaryNumber::isLessThanOrEqualTo128() const {
-	return isLessThan128() || isEqualTo128();
+bool BinaryNumber::operator<(size_t number) const {
+	BinaryNumber binary_number = BinaryNumber(number);
+	return *this < binary_number;
+}
+
+bool BinaryNumber::operator>(const BinaryNumber& binary_number) const {
+	return binary_number < *this;
+}
+
+bool BinaryNumber::operator>(size_t number) const {
+	BinaryNumber binary_number = BinaryNumber(number);
+	return *this > binary_number;
+}
+
+bool BinaryNumber::operator<=(const BinaryNumber& binary_number) const {
+	return !(*this > binary_number);
+}
+
+bool BinaryNumber::operator<=(size_t number) const {
+	BinaryNumber binary_number = BinaryNumber(number);
+	return *this <= binary_number;
+}
+
+bool BinaryNumber::operator>=(const BinaryNumber& binary_number) const {
+	return !(*this < binary_number);
+}
+
+bool BinaryNumber::operator>=(size_t number) const {
+	BinaryNumber binary_number = BinaryNumber(number);
+	return *this >= binary_number;
 }
 
 size_t BinaryNumber::size() const {

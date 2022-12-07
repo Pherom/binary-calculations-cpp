@@ -1,15 +1,15 @@
 #pragma once
 
-#include "basic_algorithm.h"
+#include "single_result_algorithm.h"
 #include "long_addition_algorithm.h"
 
-class DynamicProgrammingMultiplicationAlgorithm : public IBasicAlgorithm {
+class DynamicProgrammingMultiplicationAlgorithm : public ISingleResultAlgorithm {
 
 private:
-	IBasicAlgorithm* addition_algorithm = new LongAdditionAlgorithm();
+	ISingleResultAlgorithm* addition_algorithm = new LongAdditionAlgorithm();
 
 public:
-	~DynamicProgrammingMultiplicationAlgorithm();
+	~DynamicProgrammingMultiplicationAlgorithm() { delete addition_algorithm; };
 	virtual BinaryNumber calculate(const BinaryNumber& binary_number1, const BinaryNumber& binary_number2);
 
 };

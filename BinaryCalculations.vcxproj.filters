@@ -18,7 +18,7 @@
     <ClInclude Include="binary_number.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="basic_algorithm.h">
+    <ClInclude Include="single_result_algorithm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="naive_addition_algorithm.h">
@@ -46,6 +46,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="long_addition_with_carry_algorithm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="naive_euclidean_division_algorithm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -78,6 +81,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="LongAdditionWithCarryAlgorithm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="naive_euclidean_division_algorithm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
