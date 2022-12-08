@@ -1,6 +1,11 @@
 #include "naive_euclidean_division_algorithm.h"
 
 BinaryNumber NaiveEuclideanDivisionAlgorithm::calculate(const BinaryNumber& binary_number1, const BinaryNumber& binary_number2, BinaryNumber& remainder) {
+
+	if (binary_number2 == 0) {
+		throw new exception("Division by zero is undefined");
+	}
+
 	BinaryNumber quotient = BinaryNumber(0);
 	do {
 		++quotient;
