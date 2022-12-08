@@ -80,7 +80,7 @@
     <ClCompile Include="twos_complement_subtraction_algorithm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="LongAdditionWithCarryAlgorithm.cpp">
+    <ClCompile Include="long_addition_with_carry_algorithm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="naive_euclidean_division_algorithm.cpp">

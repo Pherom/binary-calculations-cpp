@@ -120,7 +120,7 @@
     <ClCompile Include="binary_number.cpp" />
     <ClCompile Include="dynamic_programming_multiplication_algorithm.cpp" />
     <ClCompile Include="karatsuba_multiplication_algorithm.cpp" />
-    <ClCompile Include="LongAdditionWithCarryAlgorithm.cpp" />
+    <ClCompile Include="long_addition_with_carry_algorithm.cpp" />
     <ClCompile Include="long_addition_algorithm.cpp" />
     <ClCompile Include="long_multiplication_algorithm.cpp" />
     <ClCompile Include="naive_addition_algorithm.cpp" />
