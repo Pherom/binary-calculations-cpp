@@ -20,7 +20,7 @@ private:
 	enum CHANGE_BY_ONE_OPERATION { INCREMENT, DECREMENT };
 	enum SHIFT_DIRECTION { LEFT, RIGHT };
 
-	void changeByOne(CHANGE_BY_ONE_OPERATION operation);
+	void changeByOne(CHANGE_BY_ONE_OPERATION operation, bool discard_carry = false);
 	void shift(SHIFT_DIRECTION direction, size_t amount);
 
 public:
@@ -45,13 +45,14 @@ public:
 
 	size_t size() const;
 	size_t logicalSize() const;
-	size_t getValueIfLessThanOrEqualTo128() const;
 
 	BinaryNumber& operator++();
 	BinaryNumber& operator--();
+	BinaryNumber& incrementDiscardCarry();
 	BinaryNumber& shiftLeft(size_t amount);
 	BinaryNumber& shiftRight(size_t amount);
 	BinaryNumber& addTrailingZeros(size_t amount);
+	BinaryNumber& addTrailingOnes(size_t amount);
 	BinaryNumber& changeToOnesComplement();
 
 	BinaryNumber operator++(int);
@@ -64,4 +65,5 @@ public:
 	const_iterator end() const { return binary_array.end(); }
 
 	static size_t matchSize(BinaryNumber& binary_number1, BinaryNumber& binary_number2);
+	static size_t matchSizeEven(BinaryNumber& binary_number1, BinaryNumber& binary_number2);
 };

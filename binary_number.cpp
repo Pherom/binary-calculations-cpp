@@ -145,17 +145,7 @@ size_t BinaryNumber::logicalSize() const {
 	return size() - countTrailingZeros();
 }
 
-size_t BinaryNumber::getValueIfLessThanOrEqualTo128() const {
-	size_t value = 0;
-	
-	for (int i = 0; i < logicalSize(); i++) {
-		value += binary_array[i] * pow(2, i);
-	}
-
-	return value;
-}
-
-void BinaryNumber::changeByOne(CHANGE_BY_ONE_OPERATION operation) {
+void BinaryNumber::changeByOne(CHANGE_BY_ONE_OPERATION operation, bool discard_carry) {
 	bool carry = true;
 	for (size_t i = 0; i < size(); i++) {
 		if (binary_array[i] == true && operation == BinaryNumber::INCREMENT) {
@@ -172,7 +162,9 @@ void BinaryNumber::changeByOne(CHANGE_BY_ONE_OPERATION operation) {
 	}
 	if (carry) {
 		if (operation == BinaryNumber::INCREMENT) {
-			binary_array.push_back(true);
+			if (!discard_carry) {
+				binary_array.push_back(true);
+			}
 		}
 		else {
 			throw new exception("Negative numbers are not supported");
@@ -187,6 +179,11 @@ BinaryNumber& BinaryNumber::operator++() {
 
 BinaryNumber& BinaryNumber::operator--() {
 	changeByOne(BinaryNumber::DECREMENT);
+	return *this;
+}
+
+BinaryNumber& BinaryNumber::incrementDiscardCarry() {
+	changeByOne(BinaryNumber::INCREMENT, true);
 	return *this;
 }
 
@@ -265,6 +262,14 @@ BinaryNumber& BinaryNumber::addTrailingZeros(size_t amount) {
 	return *this;
 }
 
+BinaryNumber& BinaryNumber::addTrailingOnes(size_t amount) {
+	for (int i = 0; i < amount; i++) {
+		binary_array.push_back(true);
+	}
+
+	return *this;
+}
+
 BinaryNumber& BinaryNumber::changeToOnesComplement() {
 	for (bool& bit_as_bool : binary_array) {
 		bit_as_bool = !bit_as_bool;
@@ -285,4 +290,16 @@ size_t BinaryNumber::matchSize(BinaryNumber& binary_number1, BinaryNumber& binar
 	}
 
 	return max;
+}
+
+size_t BinaryNumber::matchSizeEven(BinaryNumber& binary_number1, BinaryNumber& binary_number2) {
+	size_t matched_size = matchSize(binary_number1, binary_number2);
+
+	if (matched_size % 2 != 0) {
+		binary_number1.addTrailingZeros(1);
+		binary_number2.addTrailingZeros(1);
+		++matched_size;
+	}
+
+	return matched_size;
 }
