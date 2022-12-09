@@ -103,6 +103,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="binary_search_euclidean_division_algorithm.h" />
     <ClInclude Include="single_result_algorithm.h" />
     <ClInclude Include="binary_number.h" />
     <ClInclude Include="dynamic_programming_multiplication_algorithm.h" />
@@ -118,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="binary_number.cpp" />
+    <ClCompile Include="binary_search_euclidean_division_algorithm.cpp" />
     <ClCompile Include="dynamic_programming_multiplication_algorithm.cpp" />
     <ClCompile Include="karatsuba_multiplication_algorithm.cpp" />
     <ClCompile Include="long_addition_with_carry_algorithm.cpp" />
