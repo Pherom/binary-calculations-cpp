@@ -1,4 +1,5 @@
 #include "binary_number.h"
+#include <regex>
 
 BinaryNumber::BinaryNumber(size_t number) {
 	fromDecimalRec(number);
@@ -145,7 +146,7 @@ size_t BinaryNumber::logicalSize() const {
 	return size() - countTrailingZeros();
 }
 
-void BinaryNumber::changeByOne(CHANGE_BY_ONE_OPERATION operation, bool discard_carry) {
+void BinaryNumber::changeByOne(BinaryNumber::CHANGE_BY_ONE_OPERATION operation, bool discard_carry) {
 	bool carry = true;
 	for (size_t i = 0; i < size(); i++) {
 		if (binary_array[i] == true && operation == BinaryNumber::INCREMENT) {
@@ -229,7 +230,7 @@ ostream& operator<<(ostream& os, const BinaryNumber& binary_number)
 	return os;
 }
 
-void BinaryNumber::shift(SHIFT_DIRECTION direction, size_t amount) {
+void BinaryNumber::shift(BinaryNumber::SHIFT_DIRECTION direction, size_t amount) {
 	switch (direction) {
 	case LEFT:
 		for (int i = 0; i < amount; i++) {
@@ -302,4 +303,28 @@ size_t BinaryNumber::matchSizeEven(BinaryNumber& binary_number1, BinaryNumber& b
 	}
 
 	return matched_size;
+}
+
+bool BinaryNumber::isStringValidBinaryNumber(string binary_number_str) {
+	const basic_regex<char> binary_regex("(1[01]*)|0");
+	return regex_match(binary_number_str, binary_regex);
+}
+
+BinaryNumber BinaryNumber::generateByLength(size_t length) {
+	bool rand_bit_as_bool = rand() & 1;
+	deque<bool> binary_array;
+
+	if (length == 1) {
+		binary_array.push_back(rand_bit_as_bool);
+		return BinaryNumber(binary_array);
+	}
+
+	for (int i = 0; i < length - 1; i++) {
+		binary_array.push_back(rand_bit_as_bool);
+		rand_bit_as_bool = rand() & 1;
+	}
+
+	binary_array.push_back(true);
+
+	return BinaryNumber(binary_array);
 }

@@ -66,4 +66,6 @@ public:
 
 	static size_t matchSize(BinaryNumber& binary_number1, BinaryNumber& binary_number2);
 	static size_t matchSizeEven(BinaryNumber& binary_number1, BinaryNumber& binary_number2);
+	static bool isStringValidBinaryNumber(string binary_number_str);
+	static BinaryNumber generateByLength(size_t length);
 };

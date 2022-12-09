@@ -6,6 +6,11 @@ BinaryNumber NaiveEuclideanDivisionAlgorithm::calculate(const BinaryNumber& bina
 		throw new exception("Division by zero is undefined");
 	}
 
+	if (binary_number2 > binary_number1) {
+		remainder = BinaryNumber(binary_number1);
+		return BinaryNumber(0);
+	}
+
 	BinaryNumber quotient = BinaryNumber(0);
 	do {
 		++quotient;
